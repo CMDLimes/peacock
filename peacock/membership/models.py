@@ -16,6 +16,7 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 
 class Member(AbstractUser):
+    website_url = models.CharField(max_length=100, null=True, blank=True)
     twitter_url = models.CharField(max_length=100, null=True, blank=True)
     linkedin_url = models.CharField(max_length=100, null=True, blank=True)
     mastodon_url = models.CharField(max_length=100, null=True, blank=True)
