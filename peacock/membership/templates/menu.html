@@ -2,17 +2,21 @@
 <nav class="w3-sidebar w3-collapse w3-white w3-animate-left" style="z-index:3;width:300px;" id="mySidebar"><br>
   <div class="w3-container w3-row">
     <div class="w3-col s4">
-      <img src="/w3images/avatar2.png" class="w3-circle w3-margin-right" style="width:46px">
+      {% if user.is_authenticated %}
+      <img src="{{ user.avatar.url }}" alt="{{ user.get_username}}'s avatar picture'" class="w3-circle w3-margin-right" style="width:46px">
+      {% else %}
+      <img src="static/images/logo.png" alt="logo" class="w3-circle w3-margin-right" style="width:46px">
+      {% endif %}
     </div>
     <div class="w3-col s8 w3-bar">
       {% if user.is_authenticated %}
-      <span>Welcome, <strong>{{ user.get_username }}</strong></span><br/>
+      <span>Welcome back, <strong>{{ user.first_name }}</strong></span><br/>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-envelope"></i></a>
-      <a href="#" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
+      <a href="/membership/{{ user.get_username }}/" class="w3-bar-item w3-button"><i class="fa fa-user"></i></a>
       <a href="#" class="w3-bar-item w3-button"><i class="fa fa-cog"></i></a>
       {% else %}
-      <span>Sign in</span><br/>
-      <span>Create an account</span>
+      <span><a href="#">Sign in</a></span><br/>
+      <span><a href="#">Create an account</a></span>
       {% endif %}
     </div>
   </div>
@@ -25,8 +29,8 @@
     <a href="#" class="w3-bar-item w3-button w3-padding w3-blue"><i class="fa fa-users fa-fw"></i>  Overview</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-eye fa-fw"></i>  Views</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-users fa-fw"></i>  Traffic</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullseye fa-fw"></i>  Geo</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-diamond fa-fw"></i>  Orders</a>
+    <a href="/pages/coc/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-heart fa-fw"></i>  Code of Conduct</a>
+    <a href="/pages/about/" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bullhorn fa-fw"></i>  About this project</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bell fa-fw"></i>  News</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-bank fa-fw"></i>  General</a>
     <a href="#" class="w3-bar-item w3-button w3-padding"><i class="fa fa-history fa-fw"></i>  History</a>
