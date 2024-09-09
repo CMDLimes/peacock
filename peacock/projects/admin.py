@@ -1,3 +1,6 @@
 from django.contrib import admin
 
-# Register your models here.
+from .models import Owner, Project
+
+admin.site.register(Owner)
+admin.site.register(Project)

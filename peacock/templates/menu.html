@@ -3,7 +3,11 @@
   <div class="w3-container w3-row">
     <div class="w3-col s4">
       {% if user.is_authenticated %}
+      {% if user.avatar %}
       <img src="{{ user.avatar.url }}" alt="{{ user.get_username}}'s avatar picture'" class="w3-circle w3-margin-right" style="width:46px">
+      {% else %}
+      <img src="static/images/femalecodertocat.png" alt="default avatar picture'" class="w3-circle w3-margin-right" style="width:46px">
+      {% endif %}
       {% else %}
       <img src="static/images/logo.png" alt="logo" class="w3-circle w3-margin-right" style="width:46px">
       {% endif %}
