@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.template import loader
+from django.shortcuts import get_object_or_404, render
 from .models import Member
 
 
@@ -13,3 +14,8 @@ def index(request):
     }
 
     return HttpResponse(template.render(context, request))
+
+def profile(request, username):
+    member = get_object_or_404(Member, username=username)
+    return render(request, "membership/profile.html", {"member": member})
+    

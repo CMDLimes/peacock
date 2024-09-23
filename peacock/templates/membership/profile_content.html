@@ -1,0 +1,39 @@
+<div class="w3-container" style="padding-top:22px">
+  {% if member.avatar %}
+  <img src="{{ member.avatar.url }}" alt="{{ member.username}}'s avatar picture'" width="250" height="250">
+  {% endif %}
+  <h2>{{member.first_name}} {{member.last_name}}</h2>
+  <h3>{{member.username}}
+    {% if member.pronouns %}
+     · {{member.pronouns}}
+    {% endif %}
+  </h3>
+  {% if member.bio %}
+  <div>{{member.bio}}</div>
+  {% endif %}
+  <hr/>
+  {% if member.location %}
+  <div>Location: {{member.location}}</div>
+  {% endif %}
+  GitHub: <a href="https://github.com/{{member.github_handle}}">{{member.github_handle}}</a>
+  {% if member.website_url %}
+  <div>Website:
+    <a href="{{member.website_url}}">{{member.website_url}}</a>
+  </div>
+  {% endif %}
+  {% if member.twitter_url %}
+  <div>Twitter:
+    <a href="{{member.twitter_url}}">{{member.twitter_url}}</a>
+  </div>
+  {% endif %}
+  {% if member.linkedin_url %}
+  <div>LinkedIn:
+    <a href="{{member.linkedin_url}}">{{member.linkedin_url}}</a>
+  </div>
+  {% endif %}
+  {% if member.mastodon_url %}
+  <div>Mastodon:
+    <a href="{{member.mastodon_url}}">{{member.mastodon_url}}</a>
+  </div>
+  {% endif %}
+</div>
